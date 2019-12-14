@@ -13,7 +13,7 @@ def getTemp(request):
     tempStore.close()
     tempData = data.split("\n")[1].split(" ")[9]
     temperature = float(tempData[2:])
-    temperature = temperature/1000
+    temperature = round(temperature/1000,1)
     print(temperature)
     
     return render(request, 'temperature/home.html',{'temp':temperature})
