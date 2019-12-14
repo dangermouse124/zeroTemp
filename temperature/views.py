@@ -1,10 +1,7 @@
 from django.shortcuts import render
 
+
 def home(request):
-
-    return render(request, 'temperature/home.html')
-
-def getTemp(request):
 
     temp_sensor = '/sys/bus/w1/devices/28-0314640d89ff/w1_slave'
 
@@ -14,6 +11,6 @@ def getTemp(request):
     tempData = data.split("\n")[1].split(" ")[9]
     temperature = float(tempData[2:])
     temperature = round(temperature/1000,1)
-    print(temperature)
+    #print(temperature)
     
     return render(request, 'temperature/home.html',{'temp':temperature})
