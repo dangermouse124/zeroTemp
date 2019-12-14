@@ -1,3 +1,8 @@
+.message {
+    font-family: 'Space Mono', monospace;
+  }
+
+
 #container {
     height: 400px; 
 }
