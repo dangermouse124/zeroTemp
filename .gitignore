@@ -1,0 +1,48 @@
+# Project files and dirs
+/static/
+/media/
+/tmp/
+
+# Byte-complied
+__pycache__/
+*.py[cod]
+*.py.class
+
+# C extensions
+*.so
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetest.xml
+*.coverage
+
+# Translations
+*.pot
+
+# Django stuff
+*.log
+#db.sqlite3
+settings.py
+
+
+# Spinx docs
+docs/_build/
+
+# PyBuilder
+target/
+
+#IDE
+*.vscode
+.vscode/
