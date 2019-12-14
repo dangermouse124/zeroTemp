@@ -22,13 +22,24 @@
     <div class='container'>
       <div class="card bg-light text-dark table_shadow m-1 mb-3 mt-3">
         <div class='d-flex align-items-center flex-wrap m-1'>
-            <h1>Temperature: {{ temp }}</h1>
+            <h1>Temperature: <span id='temp'>temp</span></h1>
         </div>
       </div>
     </div>
 
     {% endblock %}
 
+    <script>
+      $(document).ready(function() {
+        $.ajax({
+          url: '{% url "ajaxTemp" %}',
+          dataType: 'json',
+          success: function (data) {
+            $('#temp').html(data);
+          }
+        });
+      });
+    </script>
 
     <footer class="page-footer font-small blue">
       <div class="footer-copyright text-center py-3">© 2019 lgc</div>
