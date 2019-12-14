@@ -21,3 +21,6 @@ def ajaxTemp(request):
     }
 
     return JsonResponse(data)
+
+def gauge(request):
+    return render(request, 'temperature/gauge.html')

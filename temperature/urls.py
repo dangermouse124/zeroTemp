@@ -5,4 +5,5 @@ from django.views.generic import TemplateView
 urlpatterns = [
     path('', views.home, name='home'),
     path('ajaxTemp', views.ajaxTemp, name='ajaxTemp'),
+    path('gauge/', views.gauge, name='gauge'),
 ]
