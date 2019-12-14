@@ -31,14 +31,18 @@
 
     <script>
       $(document).ready(function() {
-        $.ajax({
-          url: '{% url "ajaxTemp" %}',
-          dataType: 'json',
-          success: function (data) {
-            $('#temp').html(data.temperature);
-          }
-        });
+        setinterval(function(){
+            $.ajax({
+            url: '{% url "ajaxTemp" %}',
+            dataType: 'json',
+            success: function (data) {
+                $('#temp').html(data.temperature);
+            }
+            });
+        },1000
+        );
       });
+
     </script>
 
     <footer class="page-footer font-small blue">
