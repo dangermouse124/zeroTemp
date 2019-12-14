@@ -16,5 +16,8 @@ def ajaxTemp(request):
     tempData = data.split("\n")[1].split(" ")[9]
     temperature = float(tempData[2:])
     temperature = round(temperature/1000,1)
+    data = {
+        'temperature':temperature,
+    }
 
-    return JsonResponse(temperature)
+    return JsonResponse(data)
