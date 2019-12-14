@@ -31,18 +31,21 @@
 
     <script>
       $(document).ready(function() {
-        setinterval(function(){
-            $.ajax({
-            url: '{% url "ajaxTemp" %}',
-            dataType: 'json',
-            success: function (data) {
-                $('#temp').html(data.temperature);
-            }
-            });
-        },1000
-        );
+        $(function(){
+        setInterval(updateTemp, 1000);
+        });          
       });
 
+      function updateTemp(){
+        $.ajax({
+          url: '{% url "ajaxTemp" %}',
+          dataType: 'json',
+          success: function (data) {
+            $('#temp').html(data.temperature);
+          }
+        });
+
+      }
     </script>
 
     <footer class="page-footer font-small blue">
