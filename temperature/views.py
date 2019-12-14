@@ -15,5 +15,5 @@ def getTemp(request):
     temperature = float(tempData[2:])
     temperature = temperature/1000
     print(temperature)
-
-    return render(request, 'temperature/home.html')
+    
+    return render(request, 'temperature/home.html',{'temp':temperature})
