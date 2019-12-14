@@ -24,3 +24,7 @@ def ajaxTemp(request):
 
 def gauge(request):
     return render(request, 'temperature/gauge.html')
+
+
+def gaugeTest(request):
+    return render(request, 'temperature/gaugecopy.html')

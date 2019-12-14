@@ -6,4 +6,5 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('ajaxTemp', views.ajaxTemp, name='ajaxTemp'),
     path('gauge/', views.gauge, name='gauge'),
+    path('gaugeTest/', views.gaugeTest, name='gaugeTest'),
 ]
