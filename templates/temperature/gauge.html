@@ -28,6 +28,12 @@
             <div id="container"></div>
         </figure>
 
+        <div id='warning'>
+            <div class="d-flex justify-content-center">
+                <span class='border-danger p-2 message text-danger border rounded'>Roast pig alert!</span>
+            </div>
+        </div>
+
         <div class='container'>
             <div class="card bg-light text-dark table_shadow m-1 mb-3 mt-3">
                 <p class='text-center p-2 message'>A piZero stacked with django, highcharts and a ds18b20</p>
@@ -154,9 +160,19 @@ function (chart) {
             success: function (data) {
                 var point = chart.series[0].points[0];
                 point.update(data.temperature);
+                if (data.temperature > 33) {
+                    $("#warning").show();
+                } else {
+                    $("#warning").hide();
+                }
             }
             });
         }, 3000);
     }
 });
+
+$(document).ready(function(){
+    $("#warning").hide();
+});
+
 </script>
