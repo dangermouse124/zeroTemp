@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import JsonResponse
+import requests
 
 
 def home(request):
@@ -22,9 +23,34 @@ def ajaxTemp(request):
 
     return JsonResponse(data)
 
+
 def gauge(request):
     return render(request, 'temperature/gauge.html')
 
+
+def solar(request):
+    return render(request, 'temperature/solar.html')
+
+
+
+def ajaxSolar(request):
+
+    URL = "http://192.168.1.50/solar_api/v1/GetInverterRealtimeData.cgi?Scope=Device&DeviceID=1&DataCollection=CommonInverterData"
+    try:
+        page = requests.get(URL)
+        solarJson = page.json()
+        power = solarJson["Body"]["Data"]["PAC"]["Value"]
+    except:
+        power = -1
+
+    data = {'power': power}
+
+    return JsonResponse(data)
+
+
+
+
+##########################################################################################
 
 def gaugeTest(request):
     return render(request, 'temperature/gaugecopy.html')
