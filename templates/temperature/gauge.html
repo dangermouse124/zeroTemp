@@ -152,6 +152,21 @@ Highcharts.chart('container', {
 // Add some life
 function (chart) {
     if (!chart.renderer.forExport) {
+        
+        $.ajax({
+        url: '{% url "ajaxTemp" %}',
+        dataType: 'json',
+        success: function (data) {
+            var point = chart.series[0].points[0];
+            point.update(data.temperature);
+            if (data.temperature > 33) {
+                $("#warning").show();
+            } else {
+                $("#warning").hide();
+            }
+        }
+        });
+
         setInterval(function () {
 
             $.ajax({

@@ -146,6 +146,16 @@ Highcharts.chart('container', {
 // Add some life
 function (chart) {
     if (!chart.renderer.forExport) {
+
+        $.ajax({
+        url: '{% url "ajaxSolar" %}',
+        dataType: 'json',
+        success: function (data) {
+            var point = chart.series[0].points[0];
+            point.update(data.power);
+        }
+        });
+
         setInterval(function () {
 
             $.ajax({
